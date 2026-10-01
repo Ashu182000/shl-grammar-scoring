@@ -154,3 +154,4 @@ hgb_handcrafted (OOF, non-zero) 0.7534   0.6718    0.6627
           BLEND (OOF, non-zero) 0.4952   0.8731    0.8647
        BLEND (TRAIN, in-sample) 0.6626   0.8529    0.9427
 2026-10-01 10:38:42,473 | INFO | REQUIRED BY SHL - training RMSE (in-sample): 0.6626 | out-of-fold RMSE (all rows): 0.7928
+2026-10-01 10:38:43,991 | INFO | wrote outputs/submission_v2_nozero_test_ids.csv
