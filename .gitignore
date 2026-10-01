@@ -1,0 +1,9 @@
+   data/
+   artifacts/
+   *.npy
+   *.wav
+   *.jsonl
+   *.zip
+   .venv/
+   __pycache__/
+   outputs/submission*.csv

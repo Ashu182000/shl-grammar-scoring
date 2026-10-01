@@ -1,0 +1,16 @@
+model,rmse,pearson,spearman
+"ridge_wavlm (OOF, all)",0.7457,0.8099,0.8348
+"ridge_wavlm (OOF, non-zero)",0.5628,0.8322,0.8252
+"svr_wavlm (OOF, all)",0.8483,0.7462,0.8091
+"svr_wavlm (OOF, non-zero)",0.5475,0.844,0.8334
+"ridge_whisper (OOF, all)",0.7868,0.7859,0.832
+"ridge_whisper (OOF, non-zero)",0.5401,0.8468,0.8395
+"svr_whisper (OOF, all)",0.8507,0.7411,0.809
+"svr_whisper (OOF, non-zero)",0.5172,0.8618,0.8511
+"ridge_text (OOF, all)",1.0389,0.56,0.6346
+"ridge_text (OOF, non-zero)",0.7577,0.6646,0.6699
+"hgb_handcrafted (OOF, all)",0.9472,0.6541,0.6743
+"hgb_handcrafted (OOF, non-zero)",0.7534,0.6718,0.6627
+"BLEND (OOF, all)",0.7928,0.7805,0.8437
+"BLEND (OOF, non-zero)",0.4952,0.8731,0.8647
+"BLEND (TRAIN, in-sample)",0.6626,0.8529,0.9427

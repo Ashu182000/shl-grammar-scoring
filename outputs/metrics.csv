@@ -1,0 +1,6 @@
+model,rmse,pearson,spearman
+ridge_audio (OOF),0.578,0.8847,0.8303
+ridge_text (OOF),1.0297,0.5564,0.619
+hgb_handcrafted (OOF),0.8335,0.7408,0.7014
+"BLEND (OOF, honest estimate)",0.5447,0.8983,0.855
+"BLEND (TRAIN, in-sample)",0.3532,0.959,0.9417

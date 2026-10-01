@@ -1,0 +1,156 @@
+2026-09-30 22:55:12,210 | INFO | rows=985 (train=769) audio_emb=(985, 1536) text_emb=(985, 768)
+2026-09-30 22:55:47,421 | INFO | handcrafted feature matrix (985, 20)
+2026-09-30 22:55:47,450 | INFO | feature-label correlations:
+low_conf_frac          -0.581
+mean_gap               -0.203
+max_gap                -0.197
+repeat_per100          -0.110
+pause_gt1_per_min      -0.107
+words_per_sentence     -0.064
+max_no_speech_prob     -0.021
+pause_gt05_per_min     -0.017
+filler_per100           0.039
+speech_ratio            0.149
+mean_word_len           0.178
+wpm_speech              0.196
+wpm_total               0.225
+ttr100                  0.228
+cola_min_p1             0.256
+cola_frac_p1_gt_half    0.319
+cola_mean_p1            0.368
+avg_logprob             0.599
+mean_word_prob          0.667
+no_speech_flag            NaN
+2026-09-30 23:02:13,343 | INFO | ridge_audio    OOF {'rmse': 0.578, 'pearson': 0.8847, 'spearman': 0.8303}
+2026-09-30 23:02:16,597 | INFO | ridge_text     OOF {'rmse': 1.0297, 'pearson': 0.5564, 'spearman': 0.619}
+2026-09-30 23:02:19,453 | INFO | hgb_handcrafted OOF {'rmse': 0.8335, 'pearson': 0.7408, 'spearman': 0.7014}
+2026-09-30 23:05:55,694 | INFO | blend weights={'ridge_audio': 0.803, 'ridge_text': 0.162, 'hgb_handcrafted': 0.214} intercept=-0.588
+2026-09-30 23:05:55,738 | INFO | 
+                       model   rmse  pearson  spearman
+           ridge_audio (OOF) 0.5780   0.8847    0.8303
+            ridge_text (OOF) 1.0297   0.5564    0.6190
+       hgb_handcrafted (OOF) 0.8335   0.7408    0.7014
+BLEND (OOF, honest estimate) 0.5447   0.8983    0.8550
+    BLEND (TRAIN, in-sample) 0.3532   0.9590    0.9417
+2026-09-30 23:05:55,739 | INFO | REQUIRED BY SHL - training RMSE (in-sample): 0.3532 | out-of-fold RMSE: 0.5447
+2026-09-30 23:06:20,299 | INFO | submissions written | sample_submission ids matched to test.csv: 25/204
+2026-10-01 10:20:26,819 | INFO | wavlm (985, 13, 768) whisper (985, 7, 1280) text (985, 768) handcrafted (985, 20)
+2026-10-01 10:21:12,122 | INFO | layer scan (RMSE/Pearson on non-zero rows):
+ source  layer   rmse  pearson
+  wavlm      0 0.7894   0.6374
+  wavlm      1 0.7450   0.6849
+  wavlm      2 0.7076   0.7201
+  wavlm      3 0.6709   0.7498
+  wavlm      4 0.6612   0.7585
+  wavlm      5 0.6362   0.7786
+  wavlm      6 0.6232   0.7891
+  wavlm      7 0.5938   0.8107
+  wavlm      8 0.5910   0.8127
+  wavlm      9 0.5893   0.8145
+  wavlm     10 0.5802   0.8206
+  wavlm     11 0.5856   0.8166
+  wavlm     12 0.5989   0.8070
+whisper      8 0.6673   0.7530
+whisper     12 0.6394   0.7762
+whisper     16 0.6366   0.7786
+whisper     20 0.5855   0.8169
+whisper     24 0.5798   0.8208
+whisper     28 0.5748   0.8245
+whisper     32 0.5496   0.8405
+2026-10-01 10:21:12,617 | INFO | best layers (array indices): {'wavlm': [10, 11], 'whisper': [6, 5]}
+2026-10-01 10:21:28,683 | INFO | ridge_wavlm        all: rmse=0.5571 r=0.8935 | non-zero: rmse=0.5702 r=0.8275
+2026-10-01 10:21:33,793 | INFO | svr_wavlm          all: rmse=0.5464 r=0.8986 | non-zero: rmse=0.5541 r=0.8383
+2026-10-01 10:21:36,408 | INFO | ridge_whisper      all: rmse=0.5540 r=0.8949 | non-zero: rmse=0.5505 r=0.8399
+2026-10-01 10:21:44,460 | INFO | svr_whisper        all: rmse=0.5349 r=0.9045 | non-zero: rmse=0.5202 r=0.8596
+2026-10-01 10:21:47,215 | INFO | ridge_text         all: rmse=1.0297 r=0.5564 | non-zero: rmse=0.8048 r=0.6278
+2026-10-01 10:21:49,877 | INFO | hgb_handcrafted    all: rmse=0.8336 r=0.7407 | non-zero: rmse=0.7789 r=0.6591
+2026-10-01 10:21:49,913 | INFO | blend weights={'ridge_wavlm': 0.194, 'svr_wavlm': 0.266, 'ridge_whisper': 0.108, 'svr_whisper': 0.415, 'ridge_text': 0.075, 'hgb_handcrafted': 0.086} intercept=-0.474
+2026-10-01 10:21:49,985 | INFO | exclude_zero=False
+                          model   rmse  pearson  spearman
+         ridge_wavlm (OOF, all) 0.5571   0.8935    0.8442
+    ridge_wavlm (OOF, non-zero) 0.5702   0.8275    0.8191
+           svr_wavlm (OOF, all) 0.5464   0.8986    0.8517
+      svr_wavlm (OOF, non-zero) 0.5541   0.8383    0.8277
+       ridge_whisper (OOF, all) 0.5540   0.8949    0.8574
+  ridge_whisper (OOF, non-zero) 0.5505   0.8399    0.8345
+         svr_whisper (OOF, all) 0.5349   0.9045    0.8705
+    svr_whisper (OOF, non-zero) 0.5202   0.8596    0.8497
+          ridge_text (OOF, all) 1.0297   0.5564    0.6190
+     ridge_text (OOF, non-zero) 0.8048   0.6278    0.6408
+     hgb_handcrafted (OOF, all) 0.8336   0.7407    0.7014
+hgb_handcrafted (OOF, non-zero) 0.7789   0.6591    0.6687
+               BLEND (OOF, all) 0.4944   0.9173    0.8820
+          BLEND (OOF, non-zero) 0.4986   0.8710    0.8630
+       BLEND (TRAIN, in-sample) 0.1739   0.9902    0.9833
+2026-10-01 10:21:49,988 | INFO | REQUIRED BY SHL - training RMSE (in-sample): 0.1739 | out-of-fold RMSE (all rows): 0.4944
+2026-10-01 10:21:50,976 | INFO | wrote outputs/submission_v2_all_test_ids.csv
+2026-10-01 10:28:09,949 | INFO | wrote outputs/submission_v2_all_test_ids.csv
+2026-10-01 10:28:58,535 | INFO | blend weights={'ridge_wavlm': 0.194, 'svr_wavlm': 0.266, 'ridge_whisper': 0.108, 'svr_whisper': 0.415, 'ridge_text': 0.075, 'hgb_handcrafted': 0.086} intercept=-0.474
+2026-10-01 10:28:58,624 | INFO | exclude_zero=False
+                              model    rmse  pearson  spearman
+0            ridge_wavlm (OOF, all)  0.5571   0.8935    0.8442
+1       ridge_wavlm (OOF, non-zero)  0.5702   0.8275    0.8191
+2              svr_wavlm (OOF, all)  0.5464   0.8986    0.8517
+3         svr_wavlm (OOF, non-zero)  0.5541   0.8383    0.8277
+4          ridge_whisper (OOF, all)  0.5540   0.8949    0.8574
+5     ridge_whisper (OOF, non-zero)  0.5505   0.8399    0.8345
+6            svr_whisper (OOF, all)  0.5349   0.9045    0.8705
+7       svr_whisper (OOF, non-zero)  0.5202   0.8596    0.8497
+8             ridge_text (OOF, all)  1.0297   0.5564    0.6190
+9        ridge_text (OOF, non-zero)  0.8048   0.6278    0.6408
+10       hgb_handcrafted (OOF, all)  0.8336   0.7407    0.7014
+11  hgb_handcrafted (OOF, non-zero)  0.7789   0.6591    0.6687
+12                 BLEND (OOF, all)  0.4944   0.9173    0.8820
+13            BLEND (OOF, non-zero)  0.4986   0.8710    0.8630
+14         BLEND (TRAIN, in-sample)  0.1739   0.9902    0.9833
+2026-10-01 10:28:58,629 | INFO | REQUIRED BY SHL - training RMSE (in-sample): 0.1739 | out-of-fold RMSE (all rows): 0.4944
+2026-10-01 10:29:00,968 | INFO | wrote outputs/submission_v2_all_test_ids.csv
+2026-10-01 10:37:44,303 | INFO | wavlm (985, 13, 768) whisper (985, 7, 1280) text (985, 768) handcrafted (985, 20)
+2026-10-01 10:38:20,372 | INFO | layer scan (RMSE/Pearson on non-zero rows):
+ source  layer   rmse  pearson
+  wavlm      0 0.7978   0.6298
+  wavlm      1 0.7511   0.6758
+  wavlm      2 0.6988   0.7286
+  wavlm      3 0.6743   0.7472
+  wavlm      4 0.6514   0.7664
+  wavlm      5 0.6310   0.7828
+  wavlm      6 0.6164   0.7943
+  wavlm      7 0.5867   0.8159
+  wavlm      8 0.5811   0.8199
+  wavlm      9 0.5844   0.8176
+  wavlm     10 0.5771   0.8230
+  wavlm     11 0.5820   0.8194
+  wavlm     12 0.5993   0.8067
+whisper      8 0.6689   0.7515
+whisper     12 0.6429   0.7733
+whisper     16 0.6319   0.7820
+whisper     20 0.5771   0.8224
+whisper     24 0.5742   0.8242
+whisper     28 0.5601   0.8339
+whisper     32 0.5439   0.8451
+2026-10-01 10:38:20,863 | INFO | best layers (array indices): {'wavlm': [10, 8], 'whisper': [6, 5]}
+2026-10-01 10:38:23,581 | INFO | ridge_wavlm        all: rmse=0.7457 r=0.8099 | non-zero: rmse=0.5628 r=0.8322
+2026-10-01 10:38:27,784 | INFO | svr_wavlm          all: rmse=0.8483 r=0.7462 | non-zero: rmse=0.5475 r=0.8440
+2026-10-01 10:38:30,493 | INFO | ridge_whisper      all: rmse=0.7868 r=0.7859 | non-zero: rmse=0.5401 r=0.8468
+2026-10-01 10:38:37,557 | INFO | svr_whisper        all: rmse=0.8507 r=0.7411 | non-zero: rmse=0.5172 r=0.8618
+2026-10-01 10:38:39,788 | INFO | ridge_text         all: rmse=1.0389 r=0.5600 | non-zero: rmse=0.7577 r=0.6646
+2026-10-01 10:38:42,372 | INFO | hgb_handcrafted    all: rmse=0.9472 r=0.6541 | non-zero: rmse=0.7534 r=0.6718
+2026-10-01 10:38:42,407 | INFO | blend weights={'ridge_wavlm': 0.146, 'svr_wavlm': 0.198, 'ridge_whisper': 0.055, 'svr_whisper': 0.555, 'ridge_text': 0.114, 'hgb_handcrafted': 0.086} intercept=-0.535
+2026-10-01 10:38:42,473 | INFO | exclude_zero=True
+                          model   rmse  pearson  spearman
+         ridge_wavlm (OOF, all) 0.7457   0.8099    0.8348
+    ridge_wavlm (OOF, non-zero) 0.5628   0.8322    0.8252
+           svr_wavlm (OOF, all) 0.8483   0.7462    0.8091
+      svr_wavlm (OOF, non-zero) 0.5475   0.8440    0.8334
+       ridge_whisper (OOF, all) 0.7868   0.7859    0.8320
+  ridge_whisper (OOF, non-zero) 0.5401   0.8468    0.8395
+         svr_whisper (OOF, all) 0.8507   0.7411    0.8090
+    svr_whisper (OOF, non-zero) 0.5172   0.8618    0.8511
+          ridge_text (OOF, all) 1.0389   0.5600    0.6346
+     ridge_text (OOF, non-zero) 0.7577   0.6646    0.6699
+     hgb_handcrafted (OOF, all) 0.9472   0.6541    0.6743
+hgb_handcrafted (OOF, non-zero) 0.7534   0.6718    0.6627
+               BLEND (OOF, all) 0.7928   0.7805    0.8437
+          BLEND (OOF, non-zero) 0.4952   0.8731    0.8647
+       BLEND (TRAIN, in-sample) 0.6626   0.8529    0.9427
+2026-10-01 10:38:42,473 | INFO | REQUIRED BY SHL - training RMSE (in-sample): 0.6626 | out-of-fold RMSE (all rows): 0.7928
